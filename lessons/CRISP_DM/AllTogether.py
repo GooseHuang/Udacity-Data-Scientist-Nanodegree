@@ -7,6 +7,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
 import matplotlib.pyplot as plt
 
+
+
 ## Putting It All Together
 #Helper functions
 def clean_fit_linear_mod(df, response_col, test_size=.3, rand_state=42):
