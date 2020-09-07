@@ -1,0 +1,10 @@
+setup.py
+goose_probability/Binomialdistribution.py
+goose_probability/Gaussiandistribution.py
+goose_probability/Generaldistribution.py
+goose_probability/__init__.py
+goose_probability.egg-info/PKG-INFO
+goose_probability.egg-info/SOURCES.txt
+goose_probability.egg-info/dependency_links.txt
+goose_probability.egg-info/not-zip-safe
+goose_probability.egg-info/top_level.txt

@@ -1,7 +1,9 @@
 from setuptools import setup
 
-setup(name='distributions',
-      version='0.1',
-      description='Gaussian distributions',
-      packages=['distributions'],
+setup(name='goose_probability',
+      version='0.2',
+      description='Gaussian and Binomial distributions',
+      packages=['goose_probability'],
+      auther='Goose Huang',
+      auther_email='goosehuangmatt@gmail.com',
       zip_safe=False)
