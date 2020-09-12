@@ -10,10 +10,24 @@ var country_name_china = 'China';
 
 var trace1 = {
 /* TODO: Use the country name and arable land data to make a bar chart */
+  x:[country_name_brazil, country_name_germany, country_name_china],
+  y:[arable_land_brazil[0], arable_land_germany[0], arable_land_china[0]],
+  type:'bar'
+  
 };
 
 var layout = {
  /* TODO: include a title for the chart */
+ title:'Arable Land by Country',
+ xaxis: {
+ 	title:'country',
+ },
+ yaxis: {
+ 	title:'arable land'
+ }  
+  
+  
+  
 };
 
 var data = [trace1];
