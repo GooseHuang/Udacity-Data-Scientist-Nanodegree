@@ -32,10 +32,4 @@ def project_one():
 def goose():
     return render_template('goose.html')
 
-
-
-
-# TODO: Start the web app per the instructions in the instructions.md file and make sure your new html file renders correctly.
-
-
 # TODO: Start the web app per the instructions in the instructions.md file and make sure your new html file renders correctly.
