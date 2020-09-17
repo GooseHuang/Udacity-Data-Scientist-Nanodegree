@@ -54,9 +54,9 @@ def return_figures():
     countrylist = df.country.unique().tolist()
     
     for country in countrylist:
-      x_val = df[df['country'] == country].year.tolist()
-      y_val =  df[df['country'] == country].hectaresarablelandperperson.tolist()
-      graph_one.append(
+        x_val = df[df['country'] == country].year.tolist()
+        y_val =  df[df['country'] == country].hectaresarablelandperperson.tolist()
+        graph_one.append(
           go.Scatter(
           x = x_val,
           y = y_val,
@@ -97,9 +97,9 @@ def return_figures():
     df.columns = ['country', 'year', 'percentrural']
     df.sort_values('percentrural', ascending=False, inplace=True)
     for country in countrylist:
-      x_val = df[df['country'] == country].year.tolist()
-      y_val =  df[df['country'] == country].percentrural.tolist()
-      graph_three.append(
+        x_val = df[df['country'] == country].year.tolist()
+        y_val =  df[df['country'] == country].percentrural.tolist()
+        graph_three.append(
           go.Scatter(
           x = x_val,
           y = y_val,
@@ -130,23 +130,23 @@ def return_figures():
     df = df_one.merge(df_two, on=['country', 'year'])
 
     for country in countrylist:
-      x_val = df[df['country'] == country].variable_x.tolist()
-      y_val = df[df['country'] == country].variable_y.tolist()
-      year = df[df['country'] == country].year.tolist()
-      country_label = df[df['country'] == country].country.tolist()
+        x_val = df[df['country'] == country].variable_x.tolist()
+        y_val = df[df['country'] == country].variable_y.tolist()
+        year = df[df['country'] == country].year.tolist()
+        country_label = df[df['country'] == country].country.tolist()
 
-      text = []
-      for country, year in zip(country_label, year):
-          text.append(str(country) + ' ' + str(year))
+        text = []
+        for country, year in zip(country_label, year):
+            text.append(str(country) + ' ' + str(year))
 
-      graph_four.append(
+        graph_four.append(
           go.Scatter(
           x = x_val,
           y = y_val,
           mode = 'markers',
           text = text,
           name = country,
-          textposition = 'top'
+          textposition = 'top center'
           )
       )
 
@@ -162,9 +162,25 @@ def return_figures():
     # HINT: you can use the clean_data() function. You'll need to specify the path to the csv file, and which columns you want to keep. The chart 2 code might help with understanding how to code this.
     
     # TODO: once the data is clean, make a list called graph_five and append the plotly graph to this list.
+    graph_five = []
+    df = cleandata('data/API_SP.RUR.TOTL_DS2_en_csv_v2_9914824.csv')
+    df.columns = ['country','year','totalrualpopulation']
+    df.sort_values('totalrualpopulation', ascending=False, inplace=True)
+    df = df[df['year'] == 2015] 
     
-    # TODO: fill a layout variable for the fifth visualization
+    graph_five.append(
+      go.Bar(
+      x = df.country.tolist(),
+      y = df.totalrualpopulation.tolist(),
+          )
+        )
     
+    # TODO: fill a layout variable for the fifth visualization    
+    layout_five = dict(title = 'Total Rural Population in 2015',
+            xaxis = dict(title = 'Country',),
+            yaxis = dict(title = 'Total rural population'),
+            )
+
     # append all charts to the figures list
     figures = []
     figures.append(dict(data=graph_one, layout=layout_one))
@@ -173,5 +189,6 @@ def return_figures():
     figures.append(dict(data=graph_four, layout=layout_four))
     
     # TODO: append the figure five information to the figures list
+    figures.append(dict(data=graph_five, layout=layout_five))
     
     return figures
